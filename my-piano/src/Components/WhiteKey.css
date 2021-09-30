@@ -1,0 +1,13 @@
+.white-key-button {
+  height: 300px;
+  width: 50px;
+  padding-top: 500%;
+  position: relative;
+  left: 0px;
+}
+.white-input-helper {
+  color: grey;
+}
+.actual-white {
+  margin-top: 10px;
+}
