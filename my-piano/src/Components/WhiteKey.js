@@ -10,6 +10,7 @@ class WhiteKey extends React.Component {
     this.state = {
       pressed: false,
       correctKey: this.props.correctKey,
+      mouseClick: false,
     };
   }
   componentDidUpdate() {
@@ -18,7 +19,9 @@ class WhiteKey extends React.Component {
         this.noiseMaker();
       }
       if (this.props.keyboardInput[this.state.correctKey] === false) {
-        this.noiseStopper();
+        if (this.state.mouseClick === false) {
+          this.noiseStopper();
+        }
       }
     }
   }
@@ -29,8 +32,8 @@ class WhiteKey extends React.Component {
     }
     return (
       <button
-        onMouseDown={this.noiseMaker}
-        onMouseUp={this.noiseStopper}
+        onMouseDown={this.mouseDown}
+        onMouseUp={this.mouseUp}
         onMouseOut={this.noiseStopper}
         className="white-key-button"
       >
@@ -39,6 +42,14 @@ class WhiteKey extends React.Component {
       </button>
     );
   }
+  mouseDown = () => {
+    this.setState({ mouseClick: true });
+    this.noiseMaker();
+  };
+  mouseUp = () => {
+    this.setState({ mouseClick: false });
+    this.noiseStopper();
+  };
   noiseStopper = () => {
     if (this.state.pressed === true) {
       this.setState({ pressed: false });

@@ -18,8 +18,8 @@ class Octave extends React.Component {
     "Bb",
     "B",
   ];
-  whiteKeyboardInput = ["a", "s", "d", "f", "g", "h", "j", "k"];
-  blackKeyboardInput = ["w", "e", "t", "y", "u", "i"];
+  whiteKeyboardInput4 = ["a", "s", "d", "f", "g", "h", "j", "k"];
+  blackKeyboardInput4 = ["w", "e", "t", "y", "u", "i"];
   mapKeys() {
     if (this.props.octaveValue === 4) {
       return this.pianoNotes.map((input) => {
@@ -29,7 +29,7 @@ class Octave extends React.Component {
               note={input}
               octaveValue={this.props.octaveValue}
               keyboardInput={this.props.keyboardInput}
-              correctKey={this.whiteKeyboardInput.shift()}
+              correctKey={this.whiteKeyboardInput4.shift()}
             />
           );
         } else {
@@ -38,7 +38,7 @@ class Octave extends React.Component {
               note={input}
               octaveValue={this.props.octaveValue}
               keyboardInput={this.props.keyboardInput}
-              correctKey={this.blackKeyboardInput.shift()}
+              correctKey={this.blackKeyboardInput4.shift()}
             />
           );
         }

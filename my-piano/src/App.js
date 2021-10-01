@@ -1,12 +1,10 @@
 import "./App.css";
 import Octave from "./Components/Octave";
 import React from "react";
-import { render } from "react-dom";
 
 class App extends React.Component {
   constructor() {
     super();
-    //this.keysDown = {};
     this.state = {};
   }
   octaveAmount = [3, 4, 5, 6];
@@ -15,11 +13,9 @@ class App extends React.Component {
     window.addEventListener("keyup", this.eventUp);
   }
   eventDown = (event) => {
-    // this.keysDown[event.key] = true;
     this.setState({ [event.key]: true });
   };
   eventUp = (event) => {
-    // this.keysDown[event.key] = false;
     this.setState({ [event.key]: false });
   };
   makePiano() {
